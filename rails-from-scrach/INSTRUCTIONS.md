@@ -2,7 +2,7 @@
 
 ```shell
 # Get inside the container
-docker compose run web bash
+docker compose run --no-deps --rm web bash
 
 # Install rails
 gem install rails
@@ -16,7 +16,10 @@ rails new . --force --database=postgresql
 # Exit the container
 exit
 
-# Fix the permissions
+# List the files
+ll -lah
+
+# Fix the permissions (do not forget the dot at the end)
 sudo chown -R $USER:$USER .
 
 # Build the container
